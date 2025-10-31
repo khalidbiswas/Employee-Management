@@ -1,10 +1,17 @@
-import React from 'react';
-const handleSubmit = (e) => {
-    e.preventDefault()
-console.log('Hello')
-}
+import React, { useState } from 'react';
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(email);
+        console.log(password);
+
+        setEmail('');
+        setPassword('');
+
+    }
     return (
         <div className="flex items-center justify-center min-h-screen bg-yellow-300 ">
             <div className="w-[380px]  shadow-2xl rounded-2xl bg-blue-300 p-8 border border-gray-200 hover:shadow-teal-400/40 transition-all duration-300">
@@ -12,18 +19,26 @@ const Login = () => {
                     Welcome Back 👋
                 </h2>
 
-                <form onSubmit={(e)=>{handleSubmit(e)}} className="flex flex-col space-y-5">
+                <form onSubmit={(e) => { handleSubmit(e) }} className="flex flex-col space-y-5">
 
                     <input
                         type="email"
-                        required
+                        value={email}
+                        onChange={(e) => {
+                            setEmail(e.target.value)
+                        }}
+                        require
                         placeholder="Enter your email"
                         className="border border-gray-300 bg-white text-gray-800 placeholder:text-gray-400 rounded-full px-5 py-3 text-base focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm transition"
                     />
 
                     <input
                         type="password"
-                        required
+                        value={password}
+                        onChange={(e) => {
+                            setPassword(e.target.value)
+                        }}
+                        require
                         placeholder="Enter your password"
                         className="border border-gray-300 bg-white text-gray-800 placeholder:text-gray-400 rounded-full px-5 py-3 text-base focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm transition"
                     />
