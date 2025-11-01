@@ -6,25 +6,15 @@ const TaskList = () => {
            
 
             
-            <div className='flex flex-shrink-0 h-full bg-red-400 w-[15rem] rounded-xl'>
-
-            </div>
-            <div className='flex flex-shrink-0 h-full bg-red-400 w-[15rem] rounded-xl'>
-
-            </div>
-            <div className='flex flex-shrink-0 h-full bg-red-400 w-[15rem] rounded-xl'>
-
-            </div>
-            <div className='flex flex-shrink-0 h-full bg-red-400 w-[15rem] rounded-xl'>
-
-            </div>
-            <div className='flex flex-shrink-0 h-full bg-red-400 w-[15rem] rounded-xl'>
-
-            </div>
-            <div className='flex flex-shrink-0 h-full bg-red-400 w-[15rem] rounded-xl'>
-
-            </div>
-            <div className='flex flex-shrink-0 h-full bg-red-400 w-[15rem] rounded-xl'>
+            <div className=' flex-shrink-0 h-full  w-[300px] bg-red-400 rounded-xl text-white p-4'>
+                <div className=' flex  justify-between items-center'>
+                    <h2 className='bg-red-600 px-2 py-1 rounded text-sm'>High</h2>
+                    <h3 className=''>date</h3>
+                </div>
+                <h2 className='text-xl mt-5'>Title</h2>
+                <p className='text-sm mt-2'>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum iure, iusto dicta fugit odit perspiciatis.
+                </p>
 
             </div>
             
