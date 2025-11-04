@@ -23,7 +23,7 @@ const App = () => {
         !user ? <Login handleLogIn={handleLogIn}></Login> : ''
       }
       {
-        user == 'admin' ? <AdminDashboard></AdminDashboard> : <EmployeeDashBoard/>
+        user == 'admin' ? <AdminDashboard></AdminDashboard> : user=='employee' <EmployeeDashBoard/>
       }
 
     </>
