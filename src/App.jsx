@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Login from './assets/components/Auth/Login';
 import EmployeeDashBoard from './assets/components/Dash/EmployeeDashboard';
 import AdminDashboard from './assets/components/Dash/AdminDashboard'
+import { AuthContext } from './assets/context/AuthProvider';
 const App = () => {
   const [user, setUser] = useState(null)
 
@@ -17,13 +18,17 @@ const App = () => {
       alert('Invalid credentials')
     }
   }
+  const data = useContext(AuthContext)
+
+console.log(data);
+
   return (
     <>
       {
         !user ? <Login handleLogIn={handleLogIn}></Login> : ''
       }
       {
-        user == 'admin' ? <AdminDashboard></AdminDashboard> : user=='employee' <EmployeeDashBoard/>
+        user == 'admin' ? <AdminDashboard></AdminDashboard> : user == 'employee' ? < EmployeeDashBoard /> : ''
       }
 
     </>
