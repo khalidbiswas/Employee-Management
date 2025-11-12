@@ -3,16 +3,18 @@ import Header from '../other/Header';
 import CreateTask from '../other/CreateTask';
 import AllTask from '../other/AllTask';
 
-const AdminDashboard = () => {
+const AdminDashboard = ({data}) => {
+    
+    
     return (
         <div className='bg-[#151010] h-screen w-full'>
             <div className='bg-[#151010] h-screen w-full p-10'>
-                <Header></Header>
-                <CreateTask></CreateTask>
+                <Header data={data} />
+                <CreateTask data={data}/>
                  
             </div>
             <div >
-               <AllTask></AllTask>
+               <AllTask data={data}></AllTask>
             </div>
         </div>
     );

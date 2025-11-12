@@ -37,7 +37,13 @@ const employee = [
                 "failed": false,
                 "new_task": true
             }
-        ]
+        ],
+        "stats": {
+            "active": 1,
+            "completed": 1,
+            "failed": 0,
+            "new_task": 1
+        }
     },
     {
         "id": 102,
@@ -87,7 +93,13 @@ const employee = [
                 "failed": true,
                 "new_task": false
             }
-        ]
+        ],
+        "stats": {
+            "active": 1,
+            "completed": 1,
+            "failed": 1,
+            "new_task": 1
+        }
     },
     {
         "id": 103,
@@ -137,7 +149,13 @@ const employee = [
                 "failed": true,
                 "new_task": false
             }
-        ]
+        ],
+        "stats": {
+            "active": 1,
+            "completed": 1,
+            "failed": 1,
+            "new_task": 1
+        }
     },
     {
         "id": 104,
@@ -177,7 +195,13 @@ const employee = [
                 "failed": false,
                 "new_task": true
             }
-        ]
+        ],
+        "stats": {
+            "active": 1,
+            "completed": 1,
+            "failed": 0,
+            "new_task": 1
+        }
     },
     {
         "id": 105,
@@ -227,22 +251,34 @@ const employee = [
                 "failed": true,
                 "new_task": false
             }
-        ]
-    },
-
+        ],
+        "stats": {
+            "active": 1,
+            "completed": 1,
+            "failed": 1,
+            "new_task": 1
+        }
+    }
 ]
 
 const admin = [
     {
         "id": 1,
-        "name": "Admin User",
+        "name": "Khalid Boss",
         "email": "admin@example.com",
         "role": "admin",
         "password": "123",
         "created_at": "2025-11-01T11:50:00+06:00",
-        "tasks": []
+        "tasks": [],
+        "stats": {
+            "active": 0,
+            "completed": 0,
+            "failed": 0,
+            "new_task": 0
+        }
     }
 ]
+
 
 export const setLocalStorage = () => {
     localStorage.setItem('employee', JSON.stringify(employee))
