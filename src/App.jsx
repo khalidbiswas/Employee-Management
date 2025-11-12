@@ -5,30 +5,44 @@ import AdminDashboard from './assets/components/Dash/AdminDashboard'
 import { AuthContext } from './assets/context/AuthProvider';
 const App = () => {
   const [user, setUser] = useState(null)
+  const [userData, setUserData] = useContext(AuthContext)
+  const [loggedInUser, setLogginUser] = useState(null)
 
-useEffect(()=>{
-  const loggedInUser = localStorage.getItem('loggedInUser');
-  if (loggedInUser) {
-    console.log(loggedInUser);
-    
-    
-  }
-})
+  
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+
+      const currentLog = loggedInUser.JSON.parse(loggedInUser);
+
+      setUser(currentLog.role);
+      setLogginUser(currentLog.data);
+
+    }
+  }, [])
 
   const handleLogIn = (email, password) => {
-    if (authData && authData.admin.find((e)=>email == e.email && password ==e.password) ) {
-      setUser('admin')
-      localStorage.setItem('loggedInUser',JSON.stringify({role:'admin'}))
-    } else if (authData && authData.employee.find((e) => email == e.email && password == e.password)) {
-      setUser('employee')
-      localStorage.setItem('loggedInUser', JSON.stringify({role:'employee'}))
+    if (userData) {
 
+      const adminData = userData.admin.find((e) => email == e.email && password == e.password)
+      if (adminData) {
+        setUser('admin')
+        localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }))
+      }
+    } else if (userData) {
+      const employeeData = userData.employee.find((e) => email == e.email && password == e.password)
+      if (employeeData) {
+        setUser('employee');
+        setLogginUser(employee)
+        localStorage.setItem('loggedInUser', JSON.stringify({ role: 'employee', data: 'employee' }))
+
+      }
     }
     else {
       alert('Invalid credentials')
     }
   }
-  const authData = useContext(AuthContext)
+
 
 
 
@@ -39,7 +53,7 @@ useEffect(()=>{
         !user ? <Login handleLogIn={handleLogIn}></Login> : ''
       }
       {
-        user == 'admin' ? <AdminDashboard></AdminDashboard> : user == 'employee' ? < EmployeeDashBoard data={data} /> : ''
+        user == 'admin' ? <AdminDashboard></AdminDashboard> : user == 'employee' ? < EmployeeDashBoard /> : ''
       }
 
     </>
